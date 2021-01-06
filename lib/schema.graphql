@@ -1,0 +1,57 @@
+type Usuarios {
+    id: Int!
+    nombre: String!
+    email: String!
+    nickname: String!
+    login: String!
+    password: String!
+}
+input UsuarioInput {
+    nombre: String!
+    email: String!
+    nickname: String!
+    login: String!
+    password: String!
+}
+
+
+type Comentarios{
+    id:Int!
+    contenido: String!
+}
+type Categorias{
+    id:Int!
+    nombre_categoria:String!
+}
+type Etiquetas{
+    id:Int!
+    nombre_etiqueta:String!
+
+}
+type Posts{
+    id:Int!
+    titulo:String!
+    fecha_publicacion: String!
+    estado:Boolean!
+}
+
+
+type Query{
+    "Devuelve todos los Usuarios"
+    getUsuarios:[Usuarios]
+    "Devuelve un solo Usuario, el que ud defina"
+    getUsuario(id:Int!):Usuarios
+    "Devuelve todas las Categorias"
+    getCategorias:[Categorias]
+    "Devuelve una sola categoria, el que ud defina"
+    getCategoria(id:Int!):Categorias
+    "Devuelve todas las Etiquetas"
+    getEtiquetas:[Etiquetas]
+    "Devuelve una sola Etiqueta, la que ud defina"
+    getEtiqueta(id:Int!):Etiquetas
+}
+type Mutation{
+    "Crear un Usuario"
+    createUsuario(input: UsuarioInput!):Usuarios
+        
+    }
