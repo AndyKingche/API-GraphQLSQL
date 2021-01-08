@@ -128,22 +128,32 @@ type Mutation{
     createUsuario(input: UsuarioInput!):Usuarios
     "Editar un Usuario"
     editUsuario(id:Int!, input:UsuarioEdit!):Usuarios
+    "Eliminar un Usuario"
+    deleteUsuario(id:Int!):Usuarios
     "Crear una Categoria"
     createCategoria(input: CategoriaInput!):Categorias
     "Editar una Categoria"
     editCategoria(id:Int!, input: CategoriaEdit!):Categorias
+    "Eliminar una categoria"
+    deleteCategoria(id:Int!):Categorias
     "Crear una Etiqueta"
     createEtiqueta(input: EtiquetaInput!):Etiquetas
     "Editar una etiqueta"
     editEtiqueta(id:Int!, input: EtiquetaEdit!):Etiquetas
+    "Eliminar una etiqueta"
+    deleteEtiqueta(id:Int!):Etiquetas
     "Crear un Comentario"
     createComentario(input: ComentarioInput!):Comentarios
     "Editar un Comentario"
     editComentario(id:Int!, input:ComentarioEdit!):Comentarios
+    "Eliminar un Comentario"
+    deleteComentario(id:Int!):Comentarios
     "Crear un Post"
     createPost(input: PostInput!): Posts
     "Editar un Post"
     editPost(id:Int!,input:PostEdit!):Posts
+    "Eliminar un Post"
+    deletePost(id:Int!):Posts
     "Crear un Post Etiqueta"
     createPostEtiqueta(input: PostEtiquetaInput ): PostEtiquetas
     "Editar un Post Etiqueta"
