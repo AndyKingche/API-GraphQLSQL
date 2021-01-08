@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon -e js, graphql index",
-    "lint":"standard",
+    "lint": "standard",
     "lint-fix": "standard --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +22,10 @@
     "graphql": "^15.4.0",
     "graphql-tools": "^7.0.2",
     "mariadb": "^2.5.2",
-    "sequelize": "^6.3.5"
+    "mysql2": "^2.2.5",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5",
+    "tedious": "^9.2.3"
   }
 }
