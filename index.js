@@ -9,7 +9,7 @@ const { join } = require('path')
 const resolvers = require('./lib/resolvers')
 const cors = require('cors')
 const app = express()
-const port = process.env.port || 3000
+const port = process.env.port || 4000
 
 const typeDefs = readFileSync(
     join(

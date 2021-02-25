@@ -5,11 +5,13 @@ const { //aqui ubicamos las variables que se creo en el archivo donde se puso la
     DB_PASSWD,
     DB_HOST,
     DB_NAME,
-    DB_DBMS
+    DB_DBMS,
+    DB_PORT
     }=process.env
 const sequelize = new Sequelize(`${DB_NAME}`,`${DB_USER}`,`${DB_PASSWD}`,{
     host:`${DB_HOST}`,
-    dialect:`${DB_DBMS}`
+    dialect:`${DB_DBMS}`,
+    port:`${DB_PORT}`
 })
 let connection
 async function connectDB(){
