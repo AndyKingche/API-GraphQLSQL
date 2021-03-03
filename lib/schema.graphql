@@ -1,5 +1,5 @@
 type Usuarios {
-    id: Int!
+    id: Int! 
     nombre: String!
     email: String!
     nickname: String!
@@ -71,7 +71,7 @@ input PostInput{
     titulo:String!
     "formato de fecha:  mes - dia - año"
     fecha_publicacion: String!
-    estado:Boolean!
+    estado:Boolean! 
     categoriasid:Int!
     comentarioid:Int!
     usuariosid:Int!
@@ -99,11 +99,11 @@ input PostEtiquetaEdit{
 }
 type Query{
     "Devuelve todos los Usuarios"
-    getUsuarios:[Usuarios]
+    getUsuarios(limit:Int,nombre:String):[Usuarios]
     "Devuelve un solo Usuario, el que ud defina"
     getUsuario(id:Int!):Usuarios
     "Devuelve todas las Categorias"
-    getCategorias:[Categorias]
+    getCategorias(limit:Int):[Categorias]
     "Devuelve una sola categoria, el que ud defina"
     getCategoria(id:Int!):Categorias
     "Devuelve todas las Etiquetas"
@@ -111,11 +111,11 @@ type Query{
     "Devuelve una sola Etiqueta, la que ud defina"
     getEtiqueta(id:Int!):Etiquetas
     "Devuelve todos los comentarios"
-    getComentarios:[Comentarios]
+    getComentarios(limit:Int):[Comentarios]
     "Devuelve un solo comentario, la que ud defina"
     getComentario(id:Int!):Comentarios
     "Devuelve todos los posts"
-    getPosts:[Posts]
+    getPosts(limit:Int):[Posts]
     "Devuelve un solo post, la que ud defina"
     getPost(id:Int!):Posts
     "Devuelve todos los Post etiquetas"

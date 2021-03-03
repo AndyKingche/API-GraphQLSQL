@@ -1,10 +1,10 @@
-//const connectDB = require('./db')
+'use strict'
 const { DataTypes } = require("sequelize");
 
 module.exports ={
     Usuario: async(db) =>{
-        //let db = await connectDB()
             let User = db.define("usuarios", {
+                
                 nombre: DataTypes.TEXT,
                 email:  DataTypes.TEXT,
                 nickname: DataTypes.TEXT,
@@ -13,7 +13,19 @@ module.exports ={
               },{
                 timestamps: false
             })
+            let Comment = db.define("comentarios",{
+                contenido:DataTypes.TEXT,
+                usuariosid: {
+                    type: DataTypes.INTEGER,
+                    foreignKey: true,
+                    
+                  }
+            },{
+                timestamps: false
+            })
             
+            User.hasOne(Comment, { foreignKey: 'usuariosid' });
+
             return User
       
         },
@@ -38,12 +50,21 @@ module.exports ={
                 contenido:DataTypes.TEXT,
                 usuariosid: {
                     type: DataTypes.INTEGER,
-                    foreignKey: true
+                    foreignKey: true,                 
                   }
             },{
                 timestamps: false
             })
-            
+            let User = db.define("usuarios", {
+                nombre: DataTypes.TEXT,
+                email:  DataTypes.TEXT,
+                nickname: DataTypes.TEXT,
+                login: DataTypes.TEXT,
+                password:DataTypes.TEXT
+              },{
+                timestamps: false
+            })
+            Comment.belongsTo(User, { foreignKey: 'usuariosid' });
             return Comment
 
         },
