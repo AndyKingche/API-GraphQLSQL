@@ -45,8 +45,7 @@ input ComentarioInput{
 }
 input ComentarioEdit{
     contenido: String
-    usuariosid:Int
-    postsid:Int
+
 }
 type Categorias{
     id:Int!
@@ -105,14 +104,13 @@ input PostInput{
     usuariosid:Int!
 }
 input PostEdit{
-    titulo:String!
+    titulo:String
     "formato de fecha:  mes - dia - año"
-    fecha_publicacion: String!
-    estado:Boolean!
-    contenido:String!
-    keywords:String!
-    categoriasid:Int!
-    usuariosid:Int!
+    fecha_publicacion: String
+    estado:Boolean
+    contenido:String
+    keywords:String
+    categoriasid:Int
 }
 type PostEtiquetas{
     idetiqueta:[Etiquetas]
