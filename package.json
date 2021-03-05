@@ -4,7 +4,7 @@
   "description": "Este es una Api-GraphQL realizada para la Tesis ",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -e js, graphql index",
+    "dev": "nodemon -e js,graphql index",
     "lint": "standard",
     "lint-fix": "standard --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dataloader": "^2.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",

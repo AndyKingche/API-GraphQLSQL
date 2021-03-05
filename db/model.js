@@ -13,10 +13,7 @@ module.exports ={
               },{
                 timestamps: false
             })
-            
-
-            return User
-      
+            return User     
         },
         Categoria: async(db)=>{
             let Category = db.define("categorias",{
