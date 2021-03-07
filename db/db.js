@@ -77,90 +77,184 @@ const { //aqui ubicamos las variables que se creo en el archivo donde se puso la
     },
     logging:false
   })
-
-
-module.exports={
-  
-  connectDB:()=>{
-    try {
-      
-       sequelize.authenticate();
-        const models={
-          usuarios: model.Usuario(sequelize),
-          comentarios:model.Comentario(sequelize),
-          categorias:model.Categoria(sequelize),
-          posts:model.Post(sequelize)
-        }
-        
-        Object.keys(models).forEach(modelName => {
-          if ('associate' in models[modelName]) {
-            models[modelName].associate(models)
-          }
-        })
-        
-        console.log('La conexion se ha establecido con exito',sequelize.options.dialect);
-        models.sequelize = sequelize
-        models.Sequelize = Sequelize      
-        return models
-      } catch (error) {
-          
-        console.error('Imposible conectar con la base de datos:');
-        errores(error)
-      }
-  },
-  connectDBmssql:()=>{
-    try {
-      
-       sequelize2.authenticate();
-    
-        const models={
-          usuarios: model.Usuario(sequelize2),
-          comentarios:model.Comentario(sequelize2),
-          categorias:model.Categoria(sequelize2),
-          posts:model.Post(sequelize2)
-        }
-        Object.keys(models).forEach(modelName => {
-          if ('associate' in models[modelName]) {
-            models[modelName].associate(models)
-          }
-        })
-        
-        console.log('La conexion se ha establecido con exito',sequelize2.options.dialect);
-        models.sequelize2 = sequelize2
-        models.Sequelize = Sequelize    
-        return models
-      } catch (error) {
-          
-        console.error('Imposible conectar con la base de datos:');
-        errores(error)
-      }
-  },
-  connectDBpg:()=>{
-    try {
-      
-       sequelize3.authenticate();
-    
-        const models={
-          usuarios: model.Usuario(sequelize3),
-          comentarios:model.Comentario(sequelize3),
-          categorias:model.Categoria(sequelize3),
-          posts:model.Post(sequelize3)
-        }
-        Object.keys(models).forEach(modelName => {
-          if ('associate' in models[modelName]) {
-            models[modelName].associate(models)
-          }
-        })
-        
-        console.log('La conexion se ha establecido con exito',sequelize3.options.dialect);
-        models.sequelize3 = sequelize3
-        models.Sequelize = Sequelize    
-        return models
-      } catch (error) {
-          
-        console.error('Imposible conectar con la base de datos:');
-        errores(error)
-      }
+  const models={
+    usuarios: model.Usuario(sequelize),
+    comentarios:model.Comentario(sequelize),
+    categorias:model.Categoria(sequelize),
+    posts:model.Post(sequelize)
   }
-  
+  const models2={
+    usuarios: model.Usuario(sequelize3),
+    comentarios:model.Comentario(sequelize3),
+    categorias:model.Categoria(sequelize3),
+    posts:model.Post(sequelize3)
+  }
+  const models3={
+    usuarios: model.Usuario(sequelize2),
+    comentarios:model.Comentario(sequelize2),
+    categorias:model.Categoria(sequelize2),
+    posts:model.Post(sequelize2)
+  }
+function connectDB(){
+  try {
+      
+           sequelize.authenticate();
+            
+            
+            Object.keys(models).forEach(modelName => {
+              if ('associate' in models[modelName]) {
+                models[modelName].associate(models)
+              }
+            })
+            
+            console.log('La conexion se ha establecido con exito',sequelize.options.dialect);
+            models.sequelize = sequelize
+            models.Sequelize = Sequelize      
+            return models
+          } catch (error) {
+              
+            console.error('Imposible conectar con la base de datos:');
+            errores(error)
+          }
 }
+function connectDBmssql(){
+  try {
+      
+           sequelize2.authenticate();
+        
+            
+            Object.keys(models2).forEach(modelName => {
+              if ('associate' in models2[modelName]) {
+                models2[modelName].associate(models2)
+              }
+            })
+            
+            console.log('La conexion se ha establecido con exito',sequelize2.options.dialect);
+            models2.sequelize2 = sequelize2
+            models2.Sequelize = Sequelize    
+            return models
+          } catch (error) {
+              
+            console.error('Imposible conectar con la base de datos:');
+            errores(error)
+          }
+
+}
+function connectDBpg(){
+
+  try {
+      
+           sequelize3.authenticate();
+        
+            
+            Object.keys(models3).forEach(modelName => {
+              if ('associate' in models3[modelName]) {
+                models3[modelName].associate(models3)
+              }
+            })
+            
+            console.log('La conexion se ha establecido con exito',sequelize3.options.dialect);
+            models3.sequelize3 = sequelize3
+            models3.Sequelize = Sequelize    
+            return models
+          } catch (error) {
+              
+            console.error('Imposible conectar con la base de datos:');
+            errores(error)
+          }
+ }
+
+ connectDB()
+ connectDBmssql()
+ connectDBpg()
+
+
+module.exports = {
+  mysql: models,
+  mssql:models2,
+  pgsql:models3
+}
+  
+//   connectDB:()=>{
+//     try {
+      
+//        sequelize.authenticate();
+//         const models={
+//           usuarios: model.Usuario(sequelize),
+//           comentarios:model.Comentario(sequelize),
+//           categorias:model.Categoria(sequelize),
+//           posts:model.Post(sequelize)
+//         }
+        
+//         Object.keys(models).forEach(modelName => {
+//           if ('associate' in models[modelName]) {
+//             models[modelName].associate(models)
+//           }
+//         })
+        
+//         console.log('La conexion se ha establecido con exito',sequelize.options.dialect);
+//         models.sequelize = sequelize
+//         models.Sequelize = Sequelize      
+//         return models
+//       } catch (error) {
+          
+//         console.error('Imposible conectar con la base de datos:');
+//         errores(error)
+//       }
+//   },
+//   connectDBmssql:()=>{
+//     try {
+      
+//        sequelize2.authenticate();
+    
+//         const models={
+//           usuarios: model.Usuario(sequelize2),
+//           comentarios:model.Comentario(sequelize2),
+//           categorias:model.Categoria(sequelize2),
+//           posts:model.Post(sequelize2)
+//         }
+//         Object.keys(models).forEach(modelName => {
+//           if ('associate' in models[modelName]) {
+//             models[modelName].associate(models)
+//           }
+//         })
+        
+//         console.log('La conexion se ha establecido con exito',sequelize2.options.dialect);
+//         models.sequelize2 = sequelize2
+//         models.Sequelize = Sequelize    
+//         return models
+//       } catch (error) {
+          
+//         console.error('Imposible conectar con la base de datos:');
+//         errores(error)
+//       }
+//   },
+//   connectDBpg:()=>{
+//     try {
+      
+//        sequelize3.authenticate();
+    
+//         const models={
+//           usuarios: model.Usuario(sequelize3),
+//           comentarios:model.Comentario(sequelize3),
+//           categorias:model.Categoria(sequelize3),
+//           posts:model.Post(sequelize3)
+//         }
+//         Object.keys(models).forEach(modelName => {
+//           if ('associate' in models[modelName]) {
+//             models[modelName].associate(models)
+//           }
+//         })
+        
+//         console.log('La conexion se ha establecido con exito',sequelize3.options.dialect);
+//         models.sequelize3 = sequelize3
+//         models.Sequelize = Sequelize    
+//         return models
+//       } catch (error) {
+          
+//         console.error('Imposible conectar con la base de datos:');
+//         errores(error)
+//       }
+//   }
+  
+// }

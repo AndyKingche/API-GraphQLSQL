@@ -4,6 +4,7 @@
   "description": "Este es una Api-GraphQL realizada para la Tesis ",
   "main": "index.js",
   "scripts": {
+    "serve": "node --max-old-space-size=8192 index",
     "dev": "nodemon -e js,graphql index",
     "lint": "standard",
     "lint-fix": "standard --fix",
