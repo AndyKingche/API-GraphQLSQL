@@ -1,6 +1,6 @@
 'use strict'
 const { Sequelize } = require('sequelize')
-const model = require('../db/model')
+const model = require('./model')
 const errores = require('../lib/errors')
 
 const { //aqui ubicamos las variables que se creo en el archivo donde se puso las variables de entorno
