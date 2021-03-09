@@ -48,7 +48,7 @@ const { //aqui ubicamos las variables que se creo en el archivo donde se puso la
     define: {},
     dialectOptions: {
       options: {
-        requestTimeout: 60000000
+        requestTimeout: 90000000
       }
     },
     pool: {
@@ -66,14 +66,14 @@ const { //aqui ubicamos las variables que se creo en el archivo donde se puso la
     define: {},
     dialectOptions: {
       options: {
-        requestTimeout: 9000000000
+        requestTimeout: 60000000
       }
     },
     pool: {
       max: 10,
       min: 0,
-      idle: 5000000,
-      require:50000000
+      idle: 100000,
+      require:1000000
     },
     logging:false
   })
