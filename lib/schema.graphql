@@ -45,7 +45,6 @@ input ComentarioInput{
 }
 input ComentarioEdit{
     contenido: String
-
 }
 type Categorias{
     id:Int!
